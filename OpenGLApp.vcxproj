@@ -88,17 +88,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\DevIL\include;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\freeglut\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\DevIL;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\freeglut;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLEW</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\freeglut\lib\Win32;$(SolutionDir)Dependencies\GLEW\lib\Release\Win32;$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(SolutionDir)Dependencies\DevIL\lib\x86\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\freeglut;$(SolutionDir)Dependencies\GLEW;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\DevIL</AdditionalLibraryDirectories>
       <AdditionalDependencies>DevIL.lib;freeglut.lib;glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)Dependencies\freeglut\bin\$(Platform)\freeglut.dll" "$(OutDir)"
-copy "$(SolutionDir)Dependencies\DevIL\lib\x86\unicode\Release\DevIL.dll" "$(OutDir)"</Command>
+      <Command>copy "$(SolutionDir)Dependencies\freeglut\freeglut.dll" "$(OutDir)"
+copy "$(SolutionDir)Dependencies\DevIL\DevIL.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -109,19 +109,19 @@ copy "$(SolutionDir)Dependencies\DevIL\lib\x86\unicode\Release\DevIL.dll" "$(Out
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\DevIL\include;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\freeglut\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\DevIL;$(SolutionDir)Dependencies\GLM;$(SolutionDir)Dependencies\freeglut;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\GLEW</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\freeglut\lib\Win32;$(SolutionDir)Dependencies\GLEW\lib\Release\Win32;$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(SolutionDir)Dependencies\DevIL\lib\x86\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\freeglut;$(SolutionDir)Dependencies\GLEW;$(SolutionDir)Dependencies\GLFW;$(SolutionDir)Dependencies\DevIL</AdditionalLibraryDirectories>
       <AdditionalDependencies>DevIL.lib;freeglut.lib;glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)Dependencies\freeglut\bin\$(Platform)\freeglut.dll" "$(OutDir)"
-copy "$(SolutionDir)Dependencies\DevIL\lib\x86\unicode\Release\DevIL.dll" "$(OutDir)"</Command>
+      <Command>copy "$(SolutionDir)Dependencies\freeglut\freeglut.dll" "$(OutDir)"
+copy "$(SolutionDir)Dependencies\DevIL\DevIL.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
