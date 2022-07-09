@@ -33,6 +33,5 @@ public:
 
 	static Terrain LoadHeightmapTerrain(const maybewchar* filename, GLint position_location, GLint normal_location, GLint tex_coord_location);
 
-
-	static void RandomModel(const Terrain& terrain_geometry, glm::mat4* model_matrixes, int model_count, std::function<float(float, float, float)> callable); 
+	static void GenerateRandomModel(const Terrain& terrain_geometry, glm::mat4* model_matrixes, int no_generated_models, std::function<float(float, float, float)> callable); 
 };

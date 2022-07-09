@@ -26,12 +26,8 @@ typedef char maybewchar;
 static class TextureLoader {
 public:
 
+	// Loads a texture from file and calls glTexImage2D to set the data.
 	static bool LoadAndSetTexture(const maybewchar* filename, GLenum target);
 
 	static GLuint CreateAndLoadTexture(const maybewchar* filename);
-
-	static GLuint CreateAndLoadTextureCube(
-		const maybewchar* filename_px, const maybewchar* filename_nx,
-		const maybewchar* filename_py, const maybewchar* filename_ny,
-		const maybewchar* filename_pz, const maybewchar* filename_nz);
 };

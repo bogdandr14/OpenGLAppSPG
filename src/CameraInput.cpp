@@ -1,7 +1,4 @@
 #include "CameraInput.h"
-//-----------------------------------------
-//----        CAMERA INPUT CLASS       ----
-//-----------------------------------------
 
 const float CameraInput::min_elevation = -1.5f;
 const float CameraInput::max_elevation = 1.5f;

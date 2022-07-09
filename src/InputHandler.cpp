@@ -2,7 +2,8 @@
 const float InputHandler::SPEED_STEP = 0.005f;
 
 InputHandler::InputHandler(CameraInput* camera_input)
-	: camera_input(camera_input){}
+	: camera_input(camera_input) {}
+
 // Called when the user presses a key
 void InputHandler::OnKeyDown(unsigned char key, int mouseX, int mouseY, float* animation_speed)
 {

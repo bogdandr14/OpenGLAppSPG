@@ -1,11 +1,8 @@
 #include "Terrain.h"
-#include<iostream>
+#include <iostream>
 #include <functional>
 #include <random>
 #include <glm/gtc/matrix_transform.hpp>
-//-----------------------------------------
-//----            TERRAIN              ----
-//-----------------------------------------
 
 Terrain Terrain:: LoadHeightmapTerrain(const maybewchar* filename, GLint position_location, GLint normal_location, GLint tex_coord_location) {
 
@@ -214,17 +211,13 @@ Terrain Terrain:: LoadHeightmapTerrain(const maybewchar* filename, GLint positio
 	return terrain;
 }
 
-//-----------------------------------------
-//----      Random model generation    ----
-//-----------------------------------------
-
-void Terrain::RandomModel(const Terrain& terrain_geometry, glm::mat4* model_matrixes, int model_count, std::function<float(float, float, float)> callable) {
+void Terrain::GenerateRandomModel(const Terrain& terrain_geometry, glm::mat4* model_matrixes, int no_generated_models, std::function<float(float, float, float)> callable) {
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_real_distribution<> disArea(-50.0f, 49.0f);
 	std::uniform_real_distribution<> disAngle(0.0f, 6.28f);
 	std::uniform_real_distribution<> disGeneral(0.1f, 1.0f);
-	for (size_t i = 0; i < model_count; i++)
+	for (size_t i = 0; i < no_generated_models; i++)
 	{
 		float x = disArea(gen);
 		int xdata = static_cast<int>((x + 50) * 256 / 100);

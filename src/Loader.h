@@ -43,7 +43,6 @@ typedef char maybewchar;
 static class Loader: public ObjectLoader, public TextureLoader {
 public:
 
-	/// Uses the proper functions to set the debug callback method
 	static void SetDebugCallback(GLDEBUGPROCARB callback);
 
 	/// Loads a file and returns its content as std::string

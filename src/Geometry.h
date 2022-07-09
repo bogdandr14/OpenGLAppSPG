@@ -7,10 +7,10 @@
 #define _USE_MATH_DEFINES
 #pragma comment(lib, "glew32s.lib")
 //-------------------------------------------
-//----    SIMPLE PV112 GEOMETRY CLASS    ----
+//----           GEOMETRY CLASS          ----
 //-------------------------------------------
 
-	/// This is a VERY SIMPLE class to contain all buffers and vertex array objects for geometries of
+	/// This is a class to contain all buffers and vertex array objects for geometries of
 	///
 	/// When drawing the geometry, bind its VAO and call the draw command. The whole geometry is always
 	/// drawn using a single draw call.

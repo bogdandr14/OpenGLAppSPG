@@ -1,12 +1,7 @@
 #include "TextureLoader.h"
-#include<iostream>
+#include <iostream>
 using namespace std;
-//-----------------------------------------
-//----         TEXTURE LOADER          ----
-//-----------------------------------------
 
-// Loads a texture from file and calls glTexImage2D to se its data.
-// Returns true on success or false on failure.
 bool TextureLoader::LoadAndSetTexture(const maybewchar* filename, GLenum target)
 {
 	// Create IL image
@@ -83,33 +78,6 @@ GLuint TextureLoader::CreateAndLoadTexture(const maybewchar* filename)
 		return 0;
 	}
 	glBindTexture(GL_TEXTURE_2D, 0);
-
-	return tex_obj;
-}
-
-GLuint TextureLoader::CreateAndLoadTextureCube(
-	const maybewchar* filename_px, const maybewchar* filename_nx,
-	const maybewchar* filename_py, const maybewchar* filename_ny,
-	const maybewchar* filename_pz, const maybewchar* filename_nz)
-{
-	// Create OpenGL texture object
-	GLuint tex_obj;
-	glGenTextures(1, &tex_obj);
-	glBindTexture(GL_TEXTURE_CUBE_MAP, tex_obj);
-
-	// Load the data into OpenGL texture object
-	if (!LoadAndSetTexture(filename_px, GL_TEXTURE_CUBE_MAP_POSITIVE_X) ||
-		!LoadAndSetTexture(filename_nx, GL_TEXTURE_CUBE_MAP_NEGATIVE_X) ||
-		!LoadAndSetTexture(filename_py, GL_TEXTURE_CUBE_MAP_POSITIVE_Y) ||
-		!LoadAndSetTexture(filename_ny, GL_TEXTURE_CUBE_MAP_NEGATIVE_Y) ||
-		!LoadAndSetTexture(filename_pz, GL_TEXTURE_CUBE_MAP_POSITIVE_Z) ||
-		!LoadAndSetTexture(filename_nz, GL_TEXTURE_CUBE_MAP_NEGATIVE_Z))
-	{
-		glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
-		glDeleteTextures(1, &tex_obj);
-		return 0;
-	}
-	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 
 	return tex_obj;
 }

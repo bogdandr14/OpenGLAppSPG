@@ -159,7 +159,6 @@ copy "$(SolutionDir)Dependencies\DevIL\DevIL.dll" "$(OutDir)"</Command>
     <ClCompile Include="src\InputHandler.cpp" />
     <ClCompile Include="src\Loader.cpp" />
     <ClCompile Include="src\ObjectLoader.cpp" />
-    <ClCompile Include="src\Program.cpp" />
     <ClCompile Include="src\Terrain.cpp" />
     <ClCompile Include="src\TextureLoader.cpp" />
   </ItemGroup>

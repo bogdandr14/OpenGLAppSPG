@@ -37,7 +37,6 @@ public:
 	///
 	/// When the file is correctly parsed, the function returns true and 'out_vertices', 'out_normals' and
 	/// 'out_tex_coords' contains the data of individual triangles (use glDrawArrays with GL_TRIANGLES).
-	/// If something goes wrong, error messsage is printed and this function returns false.
 	static bool ParseOBJFile(const char* file_name, std::vector<glm::vec3>& out_vertices, std::vector<glm::vec3>& out_normals, std::vector<glm::vec2>& out_tex_coords);
 
 	/// Loads an OBJ file and creates a corresponding Geometry object.
@@ -52,5 +51,4 @@ public:
 	/// 'position_location', 'normal_location', and 'tex_coord_location' are locations of vertex attributes,
 	/// obtained by glGetAttribLocation. Use -1 if not necessary.
 	static Geometry CreateGrid(int size, GLint position_location, GLint normal_location = -1, GLint tex_coord_location = -1);
-
 };

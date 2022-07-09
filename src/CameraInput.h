@@ -14,17 +14,11 @@
 class CameraInput
 {
 private:
-	///		- Minimum elevation in radians
 	static const float min_elevation;
-	///		- Maximum elevation in radians
 	static const float max_elevation; 
-	///		- Minimum camera position
 	static const float min_position;
-	///		- Maximum camera position
 	static const float max_position;
-	///		- Sensitivity of the mouse when changing elevation or direction angles
 	static const float angle_sensitivity;
-	///		- Camera move speed
 	static const float move_speed;
 
 	Terrain* terrain;

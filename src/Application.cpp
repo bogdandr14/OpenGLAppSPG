@@ -183,20 +183,20 @@ void initLight() {
 }
 
 void randomGeneration() {
-	Terrain::RandomModel(terrain_data.geometry, nature_data.tree_data, TREE_COUNT, [](float x, float y, float z) { return y < 0.2 ? 0.0 : y; });
+	Terrain::GenerateRandomModel(terrain_data.geometry, nature_data.tree_data, TREE_COUNT, [](float x, float y, float z) { return y < 0.2 ? 0.0 : y; });
 	glGenBuffers(1, &(ubo.tree));
 	glBindBuffer(GL_UNIFORM_BUFFER, ubo.tree);
 	glBufferData(GL_UNIFORM_BUFFER, sizeof(nature_data.tree_data), &(nature_data.tree_data), GL_STATIC_DRAW);
 	glBindBuffer(GL_UNIFORM_BUFFER, 0);
 
-	Terrain::RandomModel(terrain_data.geometry, nature_data.tree_data, BUSH_COUNT, [](float x, float y, float z) { return y < 0.3 ? 0.0f : 1.0; });
+	Terrain::GenerateRandomModel(terrain_data.geometry, nature_data.tree_data, BUSH_COUNT, [](float x, float y, float z) { return y < 0.3 ? 0.0f : 1.0; });
 	glGenBuffers(1, &(ubo.bush));
 	glBindBuffer(GL_UNIFORM_BUFFER, ubo.bush);
 	glBufferData(GL_UNIFORM_BUFFER, sizeof(nature_data.tree_data), &(nature_data.tree_data), GL_STATIC_DRAW);
 	glBindBuffer(GL_UNIFORM_BUFFER, 0);
 
 	for (int i = 0; i < 12; ++i) {
-		Terrain::RandomModel(terrain_data.geometry, nature_data.tree_data, GRASS_COUNT, [](float x, float y, float z) { return y < 0.15 ? 0.02 : 1 - y / 2; });
+		Terrain::GenerateRandomModel(terrain_data.geometry, nature_data.tree_data, GRASS_COUNT, [](float x, float y, float z) { return y < 0.15 ? 0.02 : 1 - y / 2; });
 		glGenBuffers(1, &(ubo.long_grass[i]));
 		glBindBuffer(GL_UNIFORM_BUFFER, ubo.long_grass[i]);
 		glBufferData(GL_UNIFORM_BUFFER, sizeof(nature_data.tree_data), &(nature_data.tree_data), GL_STATIC_DRAW);
@@ -516,7 +516,7 @@ void renderWater() {
 	model_matrix = glm::scale(glm::mat4(1.0f), glm::vec3(100.0f, 0.2f, 100.0f));
 	glUniformMatrix4fv(water_data.model_matrix_loc, 1, GL_FALSE, glm::value_ptr(model_matrix));
 
-	glUniform1f(water_data.app_time_loc, app_time * 0.05f);
+	glUniform1f(water_data.app_time_loc, app_time * 0.02f);
 
 	glUniform1i(water_data.normal_tex_loc, 0);
 	glActiveTexture(GL_TEXTURE0);
@@ -650,8 +650,6 @@ void timer(int)
 
 int main(int argc, char** argv)
 {
-	//std::string line;
-	//std::cin >> line;
 
 	// Initialize GLUT
 	glutInit(&argc, argv);
